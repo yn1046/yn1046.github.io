@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    font-size:2em;
+    font-family: "Bebas Neue";
+    font-weight: bold;
+}
+
+.item {
+    background-color:crimson;
+    color:white;
+    text-align: center;
+}
+
+.container {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
