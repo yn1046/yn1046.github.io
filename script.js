@@ -1,1 +1,0 @@
-document.getElementById('txtt').innerHTML = 'l0ve!';
