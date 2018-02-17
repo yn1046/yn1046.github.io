@@ -1,9 +1,16 @@
 let kek = document.getElementById('msg');
-let fizz = document.getElementById('fizz');
+let nav = document.getElementById('nav');
 
 window.addEventListener('scroll', function(e) {
     let offset = window.pageYOffset;
     kek.innerHTML = `Offset: ${offset}`;
-    if (offset === 0) fizz.style.backgroundColor = 'crimson';
-    else fizz.style.backgroundColor = 'lightblue';
+    if (offset <80) {
+        nav.style.backgroundColor = 'transparent';
+        nav.style.color = '#373c3f';
+
+    }
+    else {
+        nav.style.backgroundColor = '#373c3f';
+        nav.style.color = 'white';
+    }
 });

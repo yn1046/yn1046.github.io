@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body {
     background-color: white;
-    font-size:2em;
-    font-family: "Bebas Neue";
-    font-weight: bold;
+    font-size:1.5rem;
+    font-family: 'Montserrat';
+    margin: 0;
 }
 
 .item {
@@ -17,6 +19,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(300px, auto);
+    padding-top:80px;
 }
 
 #msg {
@@ -26,4 +29,59 @@ body {
     bottom:0;
     width:100%;
     padding-left:20px;
+}
+
+#nav {
+    background-color: none;
+    color: #373c3f;
+    margin:0;
+    width: 100%;
+    list-style: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15vw;
+    text-align: center;
+    position:fixed;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+    z-index: 3;
+}
+
+#nav li {
+    display:inline;
+}
+
+#nav li a {
+    text-decoration: transparent;
+    color:inherit;
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    text-shadow: none;
+    transition: text-shadow linear 0.5s;
+    text-transform: uppercase;
+}
+
+#nav li a:hover {
+    text-shadow: 0 0 2em skyblue;
+}
+
+#header {
+    height: 900px;
+}
+
+#main-image-background {
+    height: 50vw;
+    width: 45vw;
+    background-color: #566351;
+    z-index: -1;
+}
+
+#main-image {
+    margin-left: 10vw;
+    top: 8vw;
+    width:45vw;
+    position: absolute;
+    z-index: 2;
+    animation-delay: 0.5s;
 }
