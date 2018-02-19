@@ -1,4 +1,4 @@
-let kek = document.getElementById('msg');
+/*let kek = document.getElementById('msg');
 let nav = document.getElementById('nav');
 
 window.addEventListener('scroll', function(e) {
@@ -13,4 +13,33 @@ window.addEventListener('scroll', function(e) {
         nav.style.backgroundColor = '#373c3f';
         nav.style.color = 'white';
     }
-});
+});*/
+
+const images = [];
+for (let i = 0; i< 5; i++) images.push(document.getElementById(`image${i}`));
+const kokok = document.getElementById('kokok');
+let i = 0;
+const changePicture = () =>
+{
+    kokok.innerText = i;
+    if (i === 4) {
+        images[4].style.zIndex = 2
+        images.forEach(img => img.style.opacity = 1);
+    }
+    if (i === 0) {
+        images[4].style.zIndex = -3;
+        images[4].style.opacity = 1;
+    }
+    images[i].style.opacity = 0;
+    i++;
+    if (i >4) i = 0;
+}
+
+try{
+    setInterval(changePicture, 2000);
+}
+catch(e)
+{
+    alert(e.message);
+}
+//alert(`${img.clientHeight}`);
