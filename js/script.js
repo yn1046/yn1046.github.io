@@ -15,6 +15,11 @@ window.addEventListener('scroll', function(e) {
     }
 });*/
 
+const startFrame = () =>
+{
+    
+}
+
 const images = [];
 for (let i = 0; i< 5; i++) images.push(document.getElementById(`image${i}`));
 let i = 0;
