@@ -15,10 +15,19 @@ window.addEventListener('scroll', function(e) {
     }
 });*/
 
-const startFrame = () =>
-{
-    
-}
+const get = (str) => document.getElementById(str);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    const frame = get('start-frame');
+    frame.classList.add('fadeout');
+    frame.style.opacity = 0;
+    frame.addEventListener('transitionend', () =>
+    {
+        frame.style.zIndex = -10;
+        get('nav').style.opacity = 1;
+        setInterval(changePicture, 6000);
+    }, false);    
+});
 
 const images = [];
 for (let i = 0; i< 5; i++) images.push(document.getElementById(`image${i}`));
@@ -37,12 +46,3 @@ const changePicture = () =>
     i++;
     if (i >4) i = 0;
 }
-
-try{
-    setInterval(changePicture, 2000);
-}
-catch(e)
-{
-    alert(e.message);
-}
-//alert(`${img.clientHeight}`);

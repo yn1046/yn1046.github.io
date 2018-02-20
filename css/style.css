@@ -5,6 +5,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat';
+    font-size: 18px;
 }
 
 #start-frame {
@@ -70,9 +71,10 @@ html, body {
     text-align: center;
     position: fixed;
     display:block;
-    transition-property: background-color, color;
-    transition-duration: 0.3s;
-    transition-timing-function: linear;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
     z-index: 3;
 }
 
@@ -110,4 +112,10 @@ html, body {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+}
+
+.fadeout {
+    transition-property: opacity;
+    transition-delay: 1s;
+    transition-duration: 2s;
 }
