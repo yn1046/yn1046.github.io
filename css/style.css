@@ -1,47 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body {
-    background-color: white;
-    font-size:1.5rem;
-    font-family: 'Montserrat';
+html, body {
+    height:100%;
     margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
 }
 
-.item {
-    background-color:crimson;
-    color:white;
-    text-justify: center;
-    text-align: center;
+#main-image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -5;
+    background: white;
 }
 
-.container {
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(300px, auto);
-    padding-top:80px;
-}
+#image0 {z-index:1}
+#image1 {z-index:0}
+#image2 {z-index:-1}
+#image3 {z-index:-2}
+#image4 {z-index:-3}
 
-#msg {
-    color: white;
-    background-color: plum;
-    position: fixed;
-    bottom:0;
-    width:100%;
-    padding-left:20px;
+.full-image {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    transform: translate(-50%,-50%);
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
 }
 
 #nav {
     background-color: none;
-    color: #373c3f;
+    color: white;
     margin:0;
+    bottom:0;
     width: 100%;
     list-style: none;
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 15vw;
     text-align: center;
-    position:fixed;
+    position: fixed;
+    display:block;
     transition-property: background-color, color;
     transition-duration: 0.3s;
     transition-timing-function: linear;
@@ -53,6 +58,7 @@ body {
 }
 
 #nav li a {
+    position:relative;
     text-decoration: transparent;
     color:inherit;
     margin-right: 1.5rem;
@@ -62,26 +68,23 @@ body {
     text-transform: uppercase;
 }
 
-#nav li a:hover {
-    text-shadow: 0 0 2em skyblue;
-}
-
-#header {
-    height: 900px;
-}
-
-#main-image-background {
-    height: 50vw;
-    width: 45vw;
-    background-color: #566351;
-    z-index: -1;
-}
-
-#main-image {
-    margin-left: 10vw;
-    top: 8vw;
-    width:45vw;
+#nav li a:before {
+    content: "";
     position: absolute;
-    z-index: 2;
-    animation-delay: 0.5s;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#nav li a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
