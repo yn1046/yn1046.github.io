@@ -17,11 +17,9 @@ window.addEventListener('scroll', function(e) {
 
 const images = [];
 for (let i = 0; i< 5; i++) images.push(document.getElementById(`image${i}`));
-const kokok = document.getElementById('kokok');
 let i = 0;
 const changePicture = () =>
 {
-    kokok.innerText = i;
     if (i === 4) {
         images[4].style.zIndex = 2
         images.forEach(img => img.style.opacity = 1);
