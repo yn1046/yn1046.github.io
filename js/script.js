@@ -15,42 +15,49 @@ window.addEventListener('scroll', function(e) {
     }
 });*/
 
-const get = (str) => document.getElementById(str);
-
-document.addEventListener("DOMContentLoaded", function(event) {
-    const frame = get('start-frame');
+const hideStart = () =>
+{
+    let frame = document.getElementById('start-frame');
     frame.classList.add('fadeout');
     frame.style.opacity = 0;
-    frame.addEventListener('transitionend', () =>
-    {
-        frame.style.zIndex = -10;
-        get('nav').style.opacity = 1;
-        const label = get('start-caption');
-        label.style.opacity = 1;
-        setInterval(changePicture, 6000);
-        label.addEventListener('transitionend', () =>
-        {
-            label.classList.remove('fast-fadein');
-            label.classList.add('fadeout');
-            label.style.opacity = 0;
-        }, false);
-    }, false);    
-});
+}
 
-const images = [];
-for (let i = 0; i< 5; i++) images.push(document.getElementById(`image${i}`));
+const showCaption = () =>
+{
+    let frame = document.getElementById('start-frame');
+    let label = document.getElementById('start-caption');
+    frame.style.zIndex = -10;
+    document.getElementById('nav').style.opacity = 1;
+    label.style.opacity = 1;
+    setInterval(changePicture, 6000);
+}
+
+const hideCaption = () =>
+{
+    let label = document.getElementById('start-caption');
+    label.classList.remove('fast-fadein');
+    label.classList.add('fadeout');
+    label.style.opacity = 0;
+}
+
+setTimeout(hideStart, 500);
+setTimeout(showCaption, 5500);
+setTimeout(hideCaption, 6100);
+
 let i = 0;
 const changePicture = () =>
 {
+    let image = document.getElementById(`image${i}`)
     if (i === 4) {
-        images[4].style.zIndex = 2
-        images.forEach(img => img.style.opacity = 1);
+        image.style.zIndex = 2
+        for (let j = 0; j <4; j++) document.getElementById(`image${j}`).style.opacity = 1;
     }
     if (i === 0) {
-        images[4].style.zIndex = -3;
-        images[4].style.opacity = 1;
+        let lastImage = document.getElementById('image4');
+        lastImage.style.zIndex = -3;
+        lastImage.style.opacity = 1;
     }
-    images[i].style.opacity = 0;
+    image.style.opacity = 0;
     i++;
     if (i >4) i = 0;
 }
