@@ -25,7 +25,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     {
         frame.style.zIndex = -10;
         get('nav').style.opacity = 1;
+        const label = get('start-caption');
+        label.style.opacity = 1;
         setInterval(changePicture, 6000);
+        label.addEventListener('transitionend', () =>
+        {
+            label.classList.remove('fast-fadein');
+            label.classList.add('fadeout');
+            label.style.opacity = 0;
+        }, false);
     }, false);    
 });
 

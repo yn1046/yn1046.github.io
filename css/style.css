@@ -18,7 +18,14 @@ html, body {
 }
 
 #start-caption {
-    visibility: hidden;
+    position: fixed;
+    opacity: 0;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    font-size: 4rem;
+    color: white;
+    transform: translate(-50%, -50%);
 }
 
 #start-logo {
@@ -55,8 +62,9 @@ html, body {
     width: auto;
     transform: translate(-50%,-50%);
     transition-property: opacity;
-    transition-duration: 0.5s;
+    transition-duration: 1s;
     transition-timing-function: ease;
+    filter: brightness(80%);
 }
 
 #nav {
@@ -114,8 +122,14 @@ html, body {
     transform: scaleX(1);
 }
 
+.fast-fadein {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
 .fadeout {
     transition-property: opacity;
-    transition-delay: 1s;
-    transition-duration: 2s;
+    transition-delay: 2s;
+    transition-duration: 3s;
 }
